@@ -6,23 +6,16 @@ public class StringZadatci {
         System.out.println("Unesite tekst: ");
         String unos = sc.nextLine();
         System.out.println(unos);
-        unos = unos.trim();
+        unos = unos.replaceAll(" ", "");
+        System.out.println(unos);
         int brs = 0;
         int brn = 0;
         int brz = 0;
         for(char i : unos.toCharArray()) {
-        if(i>= 'a' && i<='z' || i>= 'A' && i<='Z'){
-            brs++;
+        if(i>= 'a' && i<='z' || i>= 'A' && i<='Z'){ brs++; }
+        else if(i>= '0' && i<= '9'){ brn++; }
+        else{ brz++; }
         }
-        else if(i>= '0' && i<= '9'){
-            brn++;
-        }
-        else if(i != ' '){
-            brz++;
-        }
-        }
-        System.out.println("Unos ima " + brs + " slova");
-        System.out.println("Unos ima " + brn + " brojeva");
-        System.out.println("Unos ima " + brz + " znakova");
+        System.out.println("Unos ima " + brs + " slova, " + brn + " brojeva i " + brz + " znaka.");
     }
 }
